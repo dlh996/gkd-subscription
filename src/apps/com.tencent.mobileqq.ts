@@ -6,7 +6,7 @@ export default defineGkdApp({
   groups: [
     {
       key: 0,
-      name: '�������',
+      name: '开屏广告',
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
@@ -15,11 +15,11 @@ export default defineGkdApp({
       rules: [
         {
           excludeActivityIds: [
-            '.activity.ChatActivity', // ������������
-            '.search.activity.UniteSearchActivity', // ������ҳ�����
+            '.activity.ChatActivity', // 在聊天界面禁用
+            '.search.activity.UniteSearchActivity', // 在搜索页面禁用
           ],
-          excludeMatches: '[vid="root"]', // �����������ã����ų�EditText[vid="input"]�򻬶���Ϣʱ�������
-          matches: 'TextView[text^="����"][text.length<=10][!(vid="title")]',
+          excludeMatches: '[vid="root"]', // 在聊天界面禁用，若排除EditText[vid="input"]则滑动消息时会造成误触
+          matches: 'TextView[text^="跳过"][text.length<=10][!(vid="title")]',
           snapshotUrls: [
             'https://i.gkd.li/i/13093155',
             'https://i.gkd.li/i/13207731',
@@ -36,7 +36,7 @@ export default defineGkdApp({
     },
     {
       key: 2,
-      name: '������-��¼��Ȩ',
+      name: '功能类-登录授权',
       rules: [
         {
           key: 1,
@@ -50,8 +50,8 @@ export default defineGkdApp({
             'com.tencent.open.agent.QuickLoginAuthorityActivity',
           ],
           matches: [
-            '[text="��¼ȷ��" || text$="����ʹ��"][visibleToUser=true]',
-            'Button[text="��¼" || text="ͬ��" || text="ȷ��"][clickable=true][visibleToUser=true]',
+            '[text="登录确认" || text$="申请使用"][visibleToUser=true]',
+            'Button[text="登录" || text="同意" || text="确认"][clickable=true][visibleToUser=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/20737721',
@@ -65,7 +65,7 @@ export default defineGkdApp({
     },
     {
       key: 3,
-      name: '�������-QQС���������',
+      name: '开屏广告-QQ小程序开屏广告',
       fastQuery: true,
       actionMaximum: 1,
       priorityTime: 10000,
@@ -76,8 +76,8 @@ export default defineGkdApp({
             '.activity.miniaio.MiniChatActivity',
           ],
           matches: [
-            '[text="���"][visibleToUser=true]',
-            '[text="����"][visibleToUser=true]',
+            '[text="广告"][visibleToUser=true]',
+            '[text="跳过"][visibleToUser=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/12877215',
@@ -89,7 +89,7 @@ export default defineGkdApp({
     },
     {
       key: 5,
-      name: '������ʾ',
+      name: '更新提示',
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
@@ -102,8 +102,8 @@ export default defineGkdApp({
             '.upgrade.ui.dialog.UpgradeActivity',
           ],
           matches: [
-            '[text="��������"][visibleToUser=true]',
-            '[text="���ڲ�����"][visibleToUser=true]',
+            '[text="立即体验"][visibleToUser=true]',
+            '[text="近期不提醒"][visibleToUser=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/19141671',
@@ -114,7 +114,7 @@ export default defineGkdApp({
     },
     {
       key: 6,
-      name: '������ʾ-��Ϣҳ��-����',
+      name: '更新提示-消息页面-顶部',
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
@@ -124,7 +124,7 @@ export default defineGkdApp({
           key: 0,
           activityIds: '.activity.SplashActivity',
           matches:
-            '@ImageView[clickable=true][visibleToUser=true] -2 [text*="�°汾" || text*="�汾����"][text.length<10]',
+            '@ImageView[clickable=true][visibleToUser=true] -2 [text*="新版本" || text*="版本更新"][text.length<10]',
           snapshotUrls: [
             'https://i.gkd.li/i/13931212',
             'https://i.gkd.li/i/17529150',
@@ -134,14 +134,14 @@ export default defineGkdApp({
     },
     {
       key: 8,
-      name: '������-�Զ�����',
+      name: '功能类-自动领红包',
       fastQuery: true,
       rules: [
         {
           key: 0,
           activityIds: '.activity.SplashActivity',
           matches:
-            'ImageView[childCount=0] < [desc$="���Ͽ�"] < RelativeLayout < FrameLayout +2 LinearLayout >3 @ViewGroup[clickable=true][!(getChild(childCount.minus(1)).text^="��")] + TextView[text="ƴ�������"]',
+            'ImageView[childCount=0] < [desc$="资料卡"] < RelativeLayout < FrameLayout +2 LinearLayout >3 @ViewGroup[clickable=true][!(getChild(childCount.minus(1)).text^="已")] + TextView[text="拼手气红包"]',
           snapshotUrls: 'https://i.gkd.li/i/24551887',
           excludeSnapshotUrls: 'https://i.gkd.li/i/18574530',
         },
@@ -150,8 +150,8 @@ export default defineGkdApp({
           key: 1,
           activityIds: 'com.tencent.biz.TenpayActivity',
           anyMatches: [
-            '@[desc="�ر�"][clickable=true] < RelativeLayout -2 ViewGroup >4 [text^="����һ��"][visibleToUser=true]',
-            '[desc="����"][visibleToUser=true]',
+            '@[desc="关闭"][clickable=true] < RelativeLayout -2 ViewGroup >4 [text^="来晚一步"][visibleToUser=true]',
+            '[desc="拆红包"][visibleToUser=true]',
           ],
           snapshotUrls: [
             'https://i.gkd.li/i/18724880',
@@ -162,22 +162,22 @@ export default defineGkdApp({
           preKeys: [1],
           key: 2,
           activityIds: 'com.tencent.biz.TenpayActivity',
-          matches: '@[desc="����"] +n [text="�����¼"]',
+          matches: '@[desc="返回"] +n [text="红包记录"]',
           snapshotUrls: 'https://i.gkd.li/i/24551886',
         },
       ],
     },
     {
       key: 9,
-      name: '������-������Ⱥ���Զ�������Ͻǹر�',
+      name: '功能类-申请入群后自动点击右上角关闭',
       actionMaximum: 1,
       rules: [
         {
           fastQuery: true,
           activityIds: '.activity.QQBrowserActivity',
           matches: [
-            'TextView[text="��Ⱥ������"][visibleToUser=true]',
-            'TextView[text="�ر�"][visibleToUser=true]',
+            'TextView[text="入群申请中"][visibleToUser=true]',
+            'TextView[text="关闭"][visibleToUser=true]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/14235163',
         },
@@ -185,7 +185,7 @@ export default defineGkdApp({
     },
     {
       key: 10,
-      name: '������-�Զ����� Windows QQ',
+      name: '功能类-自动解锁 Windows QQ',
       fastQuery: true,
       matchTime: 10000,
       actionMaximum: 1,
@@ -193,21 +193,21 @@ export default defineGkdApp({
         {
           activityIds:
             'com.tencent.biz.qrcode.activity.UnlockPCQuickVerifyActivity',
-          matches: '[text="����"]',
+          matches: '[text="解锁"]',
           snapshotUrls: 'https://i.gkd.li/i/15360265',
         },
       ],
     },
     {
       key: 11,
-      name: '������-�Զ�����������Ӧ��',
+      name: '功能类-自动允许打开其他应用',
       rules: [
         {
           fastQuery: true,
           activityIds: '.activity.QQBrowserActivity',
           matches: [
-            '[text^="�����뿪QQ"][visibleToUser=true]',
-            '[text="����"][visibleToUser=true]',
+            '[text^="即将离开QQ"][visibleToUser=true]',
+            '[text="允许"][visibleToUser=true]',
           ],
           snapshotUrls: 'https://i.gkd.li/i/23924557',
         },
