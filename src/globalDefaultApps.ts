@@ -2,33 +2,13 @@
 // 在一些非系统应用中禁用所有全局规则
 export const blackListAppIDs: string[] = [
   // 系统自带非系统应用
-  // 小米
-  'com.miui.huanji', // 小米换机
-  'com.miui.weather2', // 天气
-  'com.miui.calculator', // 计算器
   'com.android.soundrecorder', // 录音机
   'com.android.email', // 电子邮件
-  'com.miui.screenrecorder', // 屏幕录制
   'com.android.deskclock', // 时钟
-  'com.miui.newmidrive', // 小米云盘
-  'cn.wps.moffice_eng.xiaomi.lite', // 小米文档查看器
-  'com.miui.mediaeditor', // 小米相册-编辑
-  'com.miui.notes', // 笔记
-  'com.miui.cleanmaster', // 垃圾清理
-  'com.miui.compass', // 指南针
   'com.duokan.phone.remotecontroller', // 万能遥控
   'com.mfashiongallery.emag', // 小米画报
   'com.android.calendar', // 日历
-  'com.xiaomi.smarthome', // 米家
-  'com.xiaomi.scanner', // 小爱视觉
-  'com.xiaomi.shop', // 小米商城
-  'com.mi.earphone', // 小米耳机
-  'com.miui.video', // 小米视频
-  'com.mi.health', // 小米运动健康
-  'com.miui.securitymanager', // 手机管家
   'com.android.providers.downloads.ui', // 下载管理
-  'com.miui.gallery', // 小米相册
-  'com.miui.themestore', // 小米主题商店
 
   // 第三方应用
   'com.tencent.mm', // 微信

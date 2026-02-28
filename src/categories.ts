@@ -50,11 +50,13 @@ export default defineGkdCategories([
   {
     key: 9,
     name: '功能类',
+    enable: false,
     // 非广告, 点击某些功能按钮
   },
   {
     key: 10,
     name: '其他',
+    enable: false,
     // 分类不明确
   },
 ]);
